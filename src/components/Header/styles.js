@@ -55,7 +55,10 @@ export const MenuRight = styled.a`
     line-height: 25px;
     color: #FFFFFF;
     margin-right: 12px;
+    padding 0 5px;
     text-decoration: none;
+    background: #565656;
+    border-radius: 22px;
 `
 
 export const UserPicture = styled.img`

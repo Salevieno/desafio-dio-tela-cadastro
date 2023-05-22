@@ -10,7 +10,8 @@ import { useForm } from "react-hook-form";
 
 import { Container, Title, Column, TitleLogin, SubtitleLogin, EsqueciText, CriarText, Row, Wrapper } from './styles';
 
-const Login = () => {
+const Login = () =>
+{
 
     const navigate = useNavigate()
 
@@ -19,18 +20,28 @@ const Login = () => {
         mode: 'onChange',
     });
 
-    const onSubmit = async (formData) => {
-        try{
-            const {data} = await api.get(`/users?email=${formData.email}&senha=${formData.senha}`);
+    const handleEsqueciMinhaSenhaClick = () =>
+    {
+        navigate('/TodoPage')
+    }
+
+    const onSubmit = async (formData) =>
+    {
+        try
+        {
+            const {data} = await api.get(`users?email=${formData.email}&senha=${formData.senha}`);
             
-            if(data.length && data[0].id){
+            if ( data.length && data[0].id )
+            {
                 navigate('/feed') 
                 return
             }
 
             alert('Usuário ou senha inválido')
-        }catch(e){
-            //TODO: HOUVE UM ERRO
+        }
+        catch(e)
+        {
+            alert("Houve um erro. Por favor contate o adminstrador do sistema.")
         }
     };
 
@@ -56,8 +67,8 @@ const Login = () => {
                     <Button title="Entrar" variant="secondary" type="submit"/>
                 </form>
                 <Row>
-                    <EsqueciText>Esqueci minha senha</EsqueciText>
-                    <CriarText>Criar Conta</CriarText>
+                    <EsqueciText onClick={handleEsqueciMinhaSenhaClick} >Esqueci minha senha</EsqueciText>
+                    <CriarText onClick={handleEsqueciMinhaSenhaClick} >Criar Conta</CriarText>
                 </Row>
                 </Wrapper>
             </Column>

@@ -5,6 +5,7 @@ import { Home } from './pages/home'
 import { Login } from './pages/login'
 import { Feed } from "./pages/feed";
 import { Cadastro } from "./pages/cadastro";
+import { TodoPage } from "./pages/TodoPage";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/feed" element={<Feed />} />
         <Route path="/cadastro" element={<Cadastro />} />
+        <Route path="/TodoPage" element={<TodoPage />} />
      </Routes >
     </Router>
   );
